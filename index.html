@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#090817">
+    <title>XOX ARENA</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="background-glow"></div>
+
+<header>
+    <div class="logo">XOX <span>ARENA</span></div>
+    <div class="online-status">
+        <i></i> ARENA
+    </div>
+</header>
+
+<main>
+    <section id="home" class="panel">
+        <div class="eyebrow">✦ THE ULTIMATE TIC TAC TOE ✦</div>
+        <h1>OYUNUNU<br><span>BAŞLAT.</span></h1>
+        <p class="description">
+            Rakibini seç, hamleni yap ve arenanın şampiyonu ol.
+        </p>
+
+        <button class="primary" onclick="startLocal()">
+            ⚔️ AYNI CİHAZDA OYNA
+        </button>
+
+        <div class="separator"><span>VEYA ONLINE</span></div>
+
+        <button class="secondary" onclick="createRoom()">
+            🌐 ODA OLUŞTUR
+        </button>
+
+        <div class="join-area">
+            <input id="roomInput" maxlength="5"
+                   placeholder="ODA KODU">
+            <button onclick="joinRoom()">KATIL</button>
+        </div>
+
+        <div id="homeMessage" class="message"></div>
+    </section>
+
+    <section id="game" class="panel hidden">
+        <div class="game-top">
+            <button class="back" onclick="goHome()">← GERİ</button>
+            <span id="modeLabel">YEREL OYUN</span>
+        </div>
+
+        <div id="roomInfo" class="room-info hidden">
+            ODA KODU: <strong id="roomCode"></strong>
+            <button onclick="copyRoom()">KOPYALA</button>
+        </div>
+
+        <div class="players">
+            <div class="player active" id="playerX">
+                <span class="symbol x">X</span>
+                <small>OYUNCU 1</small>
+            </div>
+            <div class="player" id="playerO">
+                <span class="symbol o">O</span>
+                <small>OYUNCU 2</small>
+            </div>
+        </div>
+
+        <div id="status" class="status">X OYUNCUSUNUN SIRASI</div>
+
+        <div class="board" id="board">
+            <button class="cell" data-index="0"></button>
+            <button class="cell" data-index="1"></button>
+            <button class="cell" data-index="2"></button>
+            <button class="cell" data-index="3"></button>
+            <button class="cell" data-index="4"></button>
+            <button class="cell" data-index="5"></button>
+            <button class="cell" data-index="6"></button>
+            <button class="cell" data-index="7"></button>
+            <button class="cell" data-index="8"></button>
+        </div>
+
+        <div id="result" class="result"></div>
+
+        <button class="primary restart" onclick="restartGame()">
+            ↻ YENİDEN OYNA
+        </button>
+    </section>
+</main>
+
+<footer>© 2026 XOX ARENA · PLAY FAIR. WIN BIG.</footer>
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
